@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "tag": "c:ingots/iron"
+    },
+    "C": {
+      "item": "ae2:crank"
+    },
+    "D": {
+      "tag": "c:cobblestones"
+    }
+  },
+  "pattern": [
+    "DCD",
+    "BAB",
+    "DCD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "growthacceleratortiers:cranked_growth_accelerator"
+  }
+}

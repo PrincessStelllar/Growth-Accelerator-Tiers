@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "had_accelerator": {
+      "conditions": {
+        "items": [
+          {
+            "items": "ae2:growth_accelerator"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "growthacceleratortiers:boosted_growth_accelerator"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "had_accelerator"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "growthacceleratortiers:boosted_growth_accelerator"
+    ]
+  }
+}

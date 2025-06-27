@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "ae2:growth_accelerator"
+    },
+    "B": {
+      "tag": "c:gems/diamond"
+    },
+    "C": {
+      "item": "ae2:fluix_pearl"
+    },
+    "D": {
+      "tag": "c:ingots/netherite"
+    },
+    "E": {
+      "item": "ae2:speed_card"
+    },
+    "F": {
+      "item": "ae2:formation_core"
+    }
+  },
+  "pattern": [
+    "ECE",
+    "BAB",
+    "DFD"
+  ],
+  "result": {
+    "count": 1,
+    "id": "growthacceleratortiers:directional_growth_accelerator"
+  }
+}

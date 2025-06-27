@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "growthacceleratortiers:block/cranked/growth_accelerator_bottom",
+    "side": "growthacceleratortiers:block/cranked/growth_accelerator_side",
+    "top": "growthacceleratortiers:block/cranked/growth_accelerator_top"
+  }
+}
