@@ -2,6 +2,7 @@ package dev.satherov.growthacceleratortiers.datagen;
 
 import dev.satherov.growthacceleratortiers.api.GAT;
 import dev.satherov.growthacceleratortiers.datagen.providers.localization.GATLocalizationProvider;
+import dev.satherov.growthacceleratortiers.datagen.providers.loot.GATLootTableProvider;
 import dev.satherov.growthacceleratortiers.datagen.providers.models.GATBlockModelProvider;
 import dev.satherov.growthacceleratortiers.datagen.providers.models.GATItemModelProvider;
 import dev.satherov.growthacceleratortiers.datagen.providers.recipe.GATRecipeProvider;
@@ -21,6 +22,8 @@ public class GATDataGenerators {
         var localization = new GATLocalizationProvider(generator);
         var pack = generator.getVanillaPack(true);
         var existingFileHelper = event.getExistingFileHelper();
+
+        pack.addProvider(packOutput -> new GATLootTableProvider(packOutput, registries));
 
         // Models
         pack.addProvider(packOutput -> new GATBlockModelProvider(packOutput, existingFileHelper));
