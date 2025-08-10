@@ -50,14 +50,14 @@ public class BuddingGeoreBlockMixin implements BuddingBlockGrowthHandler {
             cancellable = true
     )
     private void onRandomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random, CallbackInfo ci) {
-        if (growthAcceleratorTiers$checkForAccelerator(state, level, pos)) {
+        if (growthAcceleratorTiers$checkForAccelerator(state, level, pos, random)) {
             ci.cancel();
         }
     }
 
     @Override
     @Unique
-    public void growthAcceleratorTiers$handleGrowth(ServerLevel level, BlockPos pos, BlockPos growthPos, Direction direction) {
+    public void growthAcceleratorTiers$handleGrowth(ServerLevel level, BlockPos pos, BlockPos growthPos, Direction direction, RandomSource randomSource) {
         BlockState targetState = level.getBlockState(growthPos);
         Block newBlock = null;
 
