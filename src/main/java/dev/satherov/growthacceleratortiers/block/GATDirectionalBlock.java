@@ -20,13 +20,13 @@ public class GATDirectionalBlock extends GATMonoBlock<GATDirectionalBlockEntity>
 
     public GATDirectionalBlock() {
         super(GATAttachmentTypes.DIRECTIONAL_POSITION);
-        this.registerDefaultState(this.defaultBlockState().setValue(DIRECTION, Directions.UP));
+        this.registerDefaultState(this.defaultBlockState().setValue(DIRECTION, Directions.UP).setValue(CONFLICTED, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(DIRECTION);
         super.createBlockStateDefinition(builder);
+        builder.add(DIRECTION);
     }
 
     public enum Directions implements StringRepresentable {

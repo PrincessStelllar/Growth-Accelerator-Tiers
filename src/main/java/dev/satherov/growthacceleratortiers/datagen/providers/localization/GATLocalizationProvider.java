@@ -52,6 +52,21 @@ public class GATLocalizationProvider implements IAE2DataProvider {
         add("tooltip.growthacceleratortiers.directional_growth_accelerator", "Forces buds to grow in a specific direction, up by default");
         add("tooltip.growthacceleratortiers.change_direction", "Right click with a directional modifier to change the direction");
 
+        add("tooltip.growthacceleratortiers.conflicted", "Accelerator conflict");
+
+        add("direction.growthacceleratortiers", "Direction");
+        
+        add("direction.growthacceleratortiers.up", "Up");
+        add("direction.growthacceleratortiers.down", "Down");
+        add("direction.growthacceleratortiers.north", "North");
+        add("direction.growthacceleratortiers.south", "South");
+        add("direction.growthacceleratortiers.east", "East");
+        add("direction.growthacceleratortiers.west", "West");
+        add("direction.growthacceleratortiers.opposite", "Opposite");
+
+        add("config.jade.plugin_growthacceleratortiers.boosted_growth_accelerator", "Boosted Growth Accelerator");
+        add("config.jade.plugin_growthacceleratortiers.directional_growth_accelerator", "Directional Growth Accelerator");
+
         return save(cache, localizations);
     }
 
