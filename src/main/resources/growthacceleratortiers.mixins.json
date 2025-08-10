@@ -6,6 +6,7 @@
   "mixins": [
     "BuddingAmethystBlockMixin",
     "BuddingCertusQuartzBlockMixin",
+    "BuddingEntroBlockMixin",
     "BuddingGeoreBlockMixin"
   ],
   "client": [

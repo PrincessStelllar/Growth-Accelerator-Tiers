@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
@@ -13,7 +14,6 @@ import org.spongepowered.asm.mixin.Unique;
 
 public interface BuddingBlockGrowthHandler {
 
-    @Unique
     default boolean growthAcceleratorTiers$checkForAccelerator(BlockState state, ServerLevel level, BlockPos pos, RandomSource randomSource) {
         for(Direction dir : Direction.values()) {
             BlockPos checkPos = pos.relative(dir);
@@ -30,6 +30,9 @@ public interface BuddingBlockGrowthHandler {
         return false;
     }
 
-    @Unique
+    default boolean growthAcceleratorTiers$canClusterGrowAtState(BlockState state) {
+        return state.isAir() || state.is(Blocks.WATER) && state.getFluidState().getAmount() == 8;
+    }
+    
     void growthAcceleratorTiers$handleGrowth(ServerLevel level, BlockPos pos, BlockPos growthPos, Direction direction, RandomSource randomSource);
 }

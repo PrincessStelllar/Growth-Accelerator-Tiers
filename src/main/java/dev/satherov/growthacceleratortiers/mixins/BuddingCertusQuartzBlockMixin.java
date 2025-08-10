@@ -86,9 +86,4 @@ public class BuddingCertusQuartzBlockMixin implements BuddingBlockGrowthHandler 
             level.setBlockAndUpdate(pos, newBlock.defaultBlockState());
         }
     }
-
-    @Unique
-    private static boolean growthAcceleratorTiers$canClusterGrowAtState(BlockState state) {
-        return state.isAir() || state.is(Blocks.WATER) && state.getFluidState().getAmount() == 8;
-    }
 }
