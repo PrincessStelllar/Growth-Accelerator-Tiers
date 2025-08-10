@@ -1,6 +1,6 @@
 package dev.satherov.growthacceleratortiers.core.events;
 
-import dev.satherov.growthacceleratortiers.block.GATDirectionalGrowthAcceleratorBlock;
+import dev.satherov.growthacceleratortiers.block.GATDirectionalBlock;
 import dev.satherov.growthacceleratortiers.item.GATDirectionalModifier;
 
 import net.neoforged.bus.api.SubscribeEvent;
@@ -24,29 +24,29 @@ public class GATPlayerInteractEvent {
 
             if (event.getLevel() instanceof ServerLevel level && event.getEntity() instanceof ServerPlayer player) {
 
-                if (level.getBlockState(event.getPos()).getBlock() instanceof GATDirectionalGrowthAcceleratorBlock) {
+                if (level.getBlockState(event.getPos()).getBlock() instanceof GATDirectionalBlock) {
 
                     BlockPos pos = event.getPos();
                     BlockState state = level.getBlockState(pos);
 
-                    GATDirectionalGrowthAcceleratorBlock.Directions currentDir = state.getValue(GATDirectionalGrowthAcceleratorBlock.DIRECTION);
-                    GATDirectionalGrowthAcceleratorBlock.Directions nextDir = getNextDirection(currentDir);
+                    GATDirectionalBlock.Directions currentDir = state.getValue(GATDirectionalBlock.DIRECTION);
+                    GATDirectionalBlock.Directions nextDir = getNextDirection(currentDir);
 
-                    level.setBlock(pos, state.setValue(GATDirectionalGrowthAcceleratorBlock.DIRECTION, nextDir), 3);
+                    level.setBlock(pos, state.setValue(GATDirectionalBlock.DIRECTION, nextDir), 3);
                     player.displayClientMessage(Component.literal(getName(nextDir)).withStyle(ChatFormatting.AQUA), true);
                 }
             }
         }
     }
 
-    private static GATDirectionalGrowthAcceleratorBlock.Directions getNextDirection(GATDirectionalGrowthAcceleratorBlock.Directions current) {
-        GATDirectionalGrowthAcceleratorBlock.Directions[] values = GATDirectionalGrowthAcceleratorBlock.Directions.values();
+    private static GATDirectionalBlock.Directions getNextDirection(GATDirectionalBlock.Directions current) {
+        GATDirectionalBlock.Directions[] values = GATDirectionalBlock.Directions.values();
         int nextIndex = (current.ordinal() + 1) % values.length;
         return values[nextIndex];
     }
 
 
-    private static String getName(GATDirectionalGrowthAcceleratorBlock.Directions dir) {
+    private static String getName(GATDirectionalBlock.Directions dir) {
         String name = dir.name().toLowerCase(Locale.ROOT);
         char[] chars = name.toCharArray();
         chars[0] = Character.toUpperCase(chars[0]);

@@ -1,6 +1,7 @@
 package dev.satherov.growthacceleratortiers.block;
 
-import dev.satherov.growthacceleratortiers.blockentity.GATDirectionalGrowthAcceleratrorBlockEntity;
+import dev.satherov.growthacceleratortiers.blockentity.GATDirectionalBlockEntity;
+import dev.satherov.growthacceleratortiers.core.definitions.GATAttachmentTypes;
 
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
@@ -13,11 +14,12 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 
-public class GATDirectionalGrowthAcceleratorBlock extends GATGrowthAcceleratorBlock<GATDirectionalGrowthAcceleratrorBlockEntity> {
+public class GATDirectionalBlock extends GATMonoBlock<GATDirectionalBlockEntity> {
 
     public static final EnumProperty<Directions> DIRECTION = EnumProperty.create("direction", Directions.class);
 
-    public GATDirectionalGrowthAcceleratorBlock() {
+    public GATDirectionalBlock() {
+        super(GATAttachmentTypes.DIRECTIONAL_POSITION);
         this.registerDefaultState(this.defaultBlockState().setValue(DIRECTION, Directions.UP));
     }
 

@@ -2,9 +2,9 @@ package dev.satherov.growthacceleratortiers.core.definitions;
 
 import dev.satherov.growthacceleratortiers.api.GAT;
 import dev.satherov.growthacceleratortiers.api.ids.GATBlockIds;
-import dev.satherov.growthacceleratortiers.block.GATBoostedGrowthAcceleratorBlock;
-import dev.satherov.growthacceleratortiers.block.GATCrankedGrowthAcceleratorBlock;
-import dev.satherov.growthacceleratortiers.block.GATDirectionalGrowthAcceleratorBlock;
+import dev.satherov.growthacceleratortiers.block.GATBoostedBlock;
+import dev.satherov.growthacceleratortiers.block.GATCrankedBlock;
+import dev.satherov.growthacceleratortiers.block.GATDirectionalBlock;
 import dev.satherov.growthacceleratortiers.core.annotations.NothingNull;
 
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -36,9 +36,9 @@ public class GATBlocks {
 
     private static final List<BlockDefinition<?>> BLOCKS = new ArrayList<>();
 
-    public static final BlockDefinition<GATCrankedGrowthAcceleratorBlock> CRANKED_GROWTH_ACCELERATOR = block("Cranked Growth Accelerator", GATBlockIds.CRANKED_GROWTH_ACCELERATOR, GATCrankedGrowthAcceleratorBlock::new);
-    public static final BlockDefinition<GATDirectionalGrowthAcceleratorBlock> DIRECTIONAL_GROWTH_ACCELERATOR = block("Directional Growth Accelerator", GATBlockIds.DIRECTIONAL_GROWTH_ACCELERATOR, GATDirectionalGrowthAcceleratorBlock::new);
-    public static final BlockDefinition<GATBoostedGrowthAcceleratorBlock> BOOSTED_GROWTH_ACCELERATOR = block("Boosted Growth Accelerator", GATBlockIds.BOOSTED_GROWTH_ACCELERATOR, GATBoostedGrowthAcceleratorBlock::new);
+    public static final BlockDefinition<GATCrankedBlock> CRANKED_GROWTH_ACCELERATOR = block("Cranked Growth Accelerator", GATBlockIds.CRANKED_GROWTH_ACCELERATOR, GATCrankedBlock::new);
+    public static final BlockDefinition<GATDirectionalBlock> DIRECTIONAL_GROWTH_ACCELERATOR = block("Directional Growth Accelerator", GATBlockIds.DIRECTIONAL_GROWTH_ACCELERATOR, GATDirectionalBlock::new);
+    public static final BlockDefinition<GATBoostedBlock> BOOSTED_GROWTH_ACCELERATOR = block("Boosted Growth Accelerator", GATBlockIds.BOOSTED_GROWTH_ACCELERATOR, GATBoostedBlock::new);
 
     private static <T extends Block> BlockDefinition<T> block(String englishName, ResourceLocation id, Supplier<T> blockSupplier) {
         return block(englishName, id, blockSupplier, null);

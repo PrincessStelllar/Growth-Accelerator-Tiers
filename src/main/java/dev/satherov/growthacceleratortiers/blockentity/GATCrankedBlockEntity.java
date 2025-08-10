@@ -17,13 +17,13 @@ import appeng.blockentity.misc.CrankBlockEntity;
 import java.util.EnumSet;
 import java.util.Set;
 
-public class GATCrankedGrowthAcceleratorBlockEntity extends GATGrowthAcceleratorBlockEntity {
+public class GATCrankedBlockEntity extends GATGrowthAcceleratorBlockEntity {
 
     public static final int MAX_STORED_POWER = GATConfig.instance().getCrankedInternalEnergyMultiplier() * CrankBlockEntity.POWER_PER_CRANK_TURN;
     public static final int POWER_PER_TICK = GATConfig.instance().getCrankedIdlePowerConsumption();
     public static final double MULTIPLIER = GATConfig.instance().getCrankedSpeedMultiplier();
 
-    public GATCrankedGrowthAcceleratorBlockEntity(BlockEntityType<?> blockEntityType, BlockPos pos, BlockState blockState) {
+    public GATCrankedBlockEntity(BlockEntityType<?> blockEntityType, BlockPos pos, BlockState blockState) {
         super(MAX_STORED_POWER, POWER_PER_TICK, MULTIPLIER, blockEntityType, pos, blockState);
         setPowerSides(getOrientation().getSides(EnumSet.of(RelativeSide.FRONT, RelativeSide.BACK)));
     }

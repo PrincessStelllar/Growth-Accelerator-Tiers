@@ -5,10 +5,10 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BuddingAmethystBlockMixin",
+    "BuddingCertusQuartzBlockMixin",
     "BuddingGeoreBlockMixin"
   ],
   "client": [
-
   ],
   "injectors": {
     "defaultRequire": 1

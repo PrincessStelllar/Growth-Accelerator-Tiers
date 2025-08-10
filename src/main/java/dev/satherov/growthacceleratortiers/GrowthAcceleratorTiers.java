@@ -3,6 +3,7 @@ package dev.satherov.growthacceleratortiers;
 import dev.satherov.growthacceleratortiers.api.GAT;
 import dev.satherov.growthacceleratortiers.core.GATConfig;
 import dev.satherov.growthacceleratortiers.core.GATCreativeTab;
+import dev.satherov.growthacceleratortiers.core.definitions.GATAttachmentTypes;
 import dev.satherov.growthacceleratortiers.core.definitions.GATBlockEntities;
 import dev.satherov.growthacceleratortiers.core.definitions.GATBlocks;
 import dev.satherov.growthacceleratortiers.core.definitions.GATItems;
@@ -31,6 +32,7 @@ public class GrowthAcceleratorTiers {
         GATBlocks.DR.register(modEventBus);
         GATItems.DR.register(modEventBus);
         GATBlockEntities.DR.register(modEventBus);
+        GATAttachmentTypes.register(modEventBus);
 
         NeoForge.EVENT_BUS.addListener(GATPlayerInteractEvent::onPlayerUseBlockEvent);
         NeoForge.EVENT_BUS.addListener(GATTooltipEvent::registerTooltips);

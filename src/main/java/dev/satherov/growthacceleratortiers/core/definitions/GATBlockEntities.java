@@ -2,9 +2,9 @@ package dev.satherov.growthacceleratortiers.core.definitions;
 
 import dev.satherov.growthacceleratortiers.api.GAT;
 import dev.satherov.growthacceleratortiers.api.ids.GATBlockIds;
-import dev.satherov.growthacceleratortiers.blockentity.GATBoostedGrowthAcceleratorBlockEntity;
-import dev.satherov.growthacceleratortiers.blockentity.GATCrankedGrowthAcceleratorBlockEntity;
-import dev.satherov.growthacceleratortiers.blockentity.GATDirectionalGrowthAcceleratrorBlockEntity;
+import dev.satherov.growthacceleratortiers.blockentity.GATBoostedBlockEntity;
+import dev.satherov.growthacceleratortiers.blockentity.GATCrankedBlockEntity;
+import dev.satherov.growthacceleratortiers.blockentity.GATDirectionalBlockEntity;
 
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -33,19 +33,19 @@ public class GATBlockEntities {
 
     public static final DeferredRegister<BlockEntityType<?>> DR = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, GAT.MOD_ID);
     private static final List<DeferredBlockEntityType<?>> BLOCK_ENTITY_TYPES = new ArrayList<>();
-    public static final DeferredBlockEntityType<GATCrankedGrowthAcceleratorBlockEntity> CRANKED_GROWTH_ACCELERATOR = create(
-            GATBlockIds.CRANKED_GROWTH_ACCELERATOR.getPath(), GATCrankedGrowthAcceleratorBlockEntity.class,
-            GATCrankedGrowthAcceleratorBlockEntity::new, GATBlocks.CRANKED_GROWTH_ACCELERATOR
+    public static final DeferredBlockEntityType<GATCrankedBlockEntity> CRANKED_GROWTH_ACCELERATOR = create(
+            GATBlockIds.CRANKED_GROWTH_ACCELERATOR.getPath(), GATCrankedBlockEntity.class,
+            GATCrankedBlockEntity::new, GATBlocks.CRANKED_GROWTH_ACCELERATOR
     );
 
-    public static final DeferredBlockEntityType<GATDirectionalGrowthAcceleratrorBlockEntity> DIRECTIONAL_GROWTH_ACCELERATOR = create(
-            GATBlockIds.DIRECTIONAL_GROWTH_ACCELERATOR.getPath(), GATDirectionalGrowthAcceleratrorBlockEntity.class,
-            GATDirectionalGrowthAcceleratrorBlockEntity::new, GATBlocks.DIRECTIONAL_GROWTH_ACCELERATOR
+    public static final DeferredBlockEntityType<GATDirectionalBlockEntity> DIRECTIONAL_GROWTH_ACCELERATOR = create(
+            GATBlockIds.DIRECTIONAL_GROWTH_ACCELERATOR.getPath(), GATDirectionalBlockEntity.class,
+            GATDirectionalBlockEntity::new, GATBlocks.DIRECTIONAL_GROWTH_ACCELERATOR
     );
 
-    public static final DeferredBlockEntityType<GATBoostedGrowthAcceleratorBlockEntity> BOOSTED_GROWTH_ACCELERATOR = create(
-            GATBlockIds.BOOSTED_GROWTH_ACCELERATOR.getPath(), GATBoostedGrowthAcceleratorBlockEntity.class,
-            GATBoostedGrowthAcceleratorBlockEntity::new, GATBlocks.BOOSTED_GROWTH_ACCELERATOR
+    public static final DeferredBlockEntityType<GATBoostedBlockEntity> BOOSTED_GROWTH_ACCELERATOR = create(
+            GATBlockIds.BOOSTED_GROWTH_ACCELERATOR.getPath(), GATBoostedBlockEntity.class,
+            GATBoostedBlockEntity::new, GATBlocks.BOOSTED_GROWTH_ACCELERATOR
     );
 
 
