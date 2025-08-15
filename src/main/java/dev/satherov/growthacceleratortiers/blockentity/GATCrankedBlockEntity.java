@@ -9,11 +9,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 import appeng.api.config.Actionable;
+import appeng.api.implementations.blockentities.ICrankable;
 import appeng.api.orientation.BlockOrientation;
 import appeng.api.orientation.RelativeSide;
 import appeng.api.util.AECableType;
 import appeng.blockentity.misc.CrankBlockEntity;
+import com.google.common.collect.ImmutableSet;
 
+import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.Set;
 
@@ -25,7 +28,11 @@ public class GATCrankedBlockEntity extends GATGrowthAcceleratorBlockEntity {
 
     public GATCrankedBlockEntity(BlockEntityType<?> blockEntityType, BlockPos pos, BlockState blockState) {
         super(MAX_STORED_POWER, POWER_PER_TICK, MULTIPLIER, blockEntityType, pos, blockState);
-        setPowerSides(getOrientation().getSides(EnumSet.of(RelativeSide.FRONT, RelativeSide.BACK)));
+        setPowerSides(Set.of());
+    }
+
+    public ICrankable getCrankable(Direction direction) {
+        return new Crankable();
     }
 
     @Override

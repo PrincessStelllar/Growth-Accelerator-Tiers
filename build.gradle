@@ -102,6 +102,10 @@ dependencies {
 
     implementation "curse.maven:glodium-957920:5821676"
     implementation "curse.maven:ex-pattern-provider-892005:6863556"
+
+    implementation "curse.maven:mekanism-268560:6486993"
+    implementation "curse.maven:just-dire-things-1002348:6369120"
+    implementation "curse.maven:super-factory-manager-306935:6849471"
 }
 
 tasks.withType(ProcessResources).configureEach {
