@@ -45,8 +45,8 @@ public abstract class GATMonoBlock<T extends GATMonoBlockEntity> extends GATGrow
     }
 
     @Override
-    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
-        super.onPlace(state, level, pos, oldState, movedByPiston);
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean isMoving) {
+        super.onPlace(state, level, pos, oldState, isMoving);
         dataUpdate(level, pos, 1);
     }
 
@@ -60,7 +60,6 @@ public abstract class GATMonoBlock<T extends GATMonoBlockEntity> extends GATGrow
         if (accessor.isClientSide()) return;
         for (Direction dir : Direction.values()) {
             BlockPos relative = pos.relative(dir).immutable();
-            if (!accessor.getBlockState(relative).is(AETags.GROWTH_ACCELERATABLE)) continue;
             ChunkAccess chunk = accessor.getChunk(relative);
             PositionAttachment data = chunk.getData(getAttachmentType());
             data.put(relative, Math.clamp(data.get(relative) + count, 0, 6));

@@ -10,6 +10,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 
+import appeng.api.ids.AETags;
+
 
 public abstract class GATMonoBlockEntity extends GATGrowthAcceleratorBlockEntity {
     
@@ -44,6 +46,8 @@ public abstract class GATMonoBlockEntity extends GATGrowthAcceleratorBlockEntity
             
             for (Direction dir : Direction.values()) {
                 BlockPos relative = getBlockPos().relative(dir).immutable();
+                BlockState state = level.getBlockState(relative);
+                if (!state.is(AETags.GROWTH_ACCELERATABLE)) continue;
                 ChunkAccess chunk = level.getChunkAt(relative);
                 if (getBlockState().getBlock() instanceof GATMonoBlock<?> block) {
                     PositionAttachment data = chunk.getData(block.getAttachmentType());

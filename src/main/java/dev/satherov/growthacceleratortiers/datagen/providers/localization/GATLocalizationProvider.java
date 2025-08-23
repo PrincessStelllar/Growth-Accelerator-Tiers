@@ -66,6 +66,12 @@ public class GATLocalizationProvider implements IAE2DataProvider {
 
         add("config.jade.plugin_growthacceleratortiers.boosted_growth_accelerator", "Boosted Growth Accelerator");
         add("config.jade.plugin_growthacceleratortiers.directional_growth_accelerator", "Directional Growth Accelerator");
+        
+        add("command.growthacceleratortiers.info", "Found the following data on this block:");
+        add("command.growthacceleratortiers.modify", "Modified the following data on this block:");
+        add("command.growthacceleratortiers.no_data", "No data found on the block");
+        add("command.growthacceleratortiers.boosted_position", "Boosted Data: %s");
+        add("command.growthacceleratortiers.directional_position", "Directional Data: %s");
 
         return save(cache, localizations);
     }

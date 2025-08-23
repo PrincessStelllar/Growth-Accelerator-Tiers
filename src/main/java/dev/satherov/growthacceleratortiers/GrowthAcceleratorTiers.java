@@ -1,6 +1,7 @@
 package dev.satherov.growthacceleratortiers;
 
 import dev.satherov.growthacceleratortiers.api.GAT;
+import dev.satherov.growthacceleratortiers.command.GATCommands;
 import dev.satherov.growthacceleratortiers.core.GATConfig;
 import dev.satherov.growthacceleratortiers.core.GATCreativeTab;
 import dev.satherov.growthacceleratortiers.core.definitions.GATAttachmentTypes;
@@ -12,16 +13,21 @@ import dev.satherov.growthacceleratortiers.core.events.GATTooltipEvent;
 import dev.satherov.growthacceleratortiers.init.GATInitCapabilityProviders;
 
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+
+import com.mojang.brigadier.CommandDispatcher;
 
 @Mod(GAT.MOD_ID)
 public class GrowthAcceleratorTiers {
@@ -36,6 +42,8 @@ public class GrowthAcceleratorTiers {
 
         NeoForge.EVENT_BUS.addListener(GATPlayerInteractEvent::onPlayerUseBlockEvent);
         NeoForge.EVENT_BUS.addListener(GATTooltipEvent::registerTooltips);
+        NeoForge.EVENT_BUS.addListener(GrowthAcceleratorTiers::onRegisterCommands);
+        
         modEventBus.addListener(GATInitCapabilityProviders::register);
         modEventBus.addListener((RegisterEvent event) -> {
             if (event.getRegistryKey() == Registries.CREATIVE_MODE_TAB) {
@@ -46,6 +54,11 @@ public class GrowthAcceleratorTiers {
         if (FMLEnvironment.dist.isClient()) {
             Client.registerConfigScreen(modContainer);
         }
+    }
+
+    @SubscribeEvent
+    public static void onRegisterCommands(RegisterCommandsEvent event) {
+        GATCommands.register(event.getDispatcher());
     }
 
     static class Client {
