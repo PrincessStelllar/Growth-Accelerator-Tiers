@@ -1,6 +1,7 @@
 package dev.satherov.growthacceleratortiers.blockentity;
 
 import dev.satherov.growthacceleratortiers.block.GATMonoBlock;
+import dev.satherov.growthacceleratortiers.core.GATConfig;
 import dev.satherov.growthacceleratortiers.data.PositionAttachment;
 
 import net.minecraft.core.BlockPos;
@@ -51,7 +52,7 @@ public abstract class GATMonoBlockEntity extends GATGrowthAcceleratorBlockEntity
                 ChunkAccess chunk = level.getChunkAt(relative);
                 if (getBlockState().getBlock() instanceof GATMonoBlock<?> block) {
                     PositionAttachment data = chunk.getData(block.getAttachmentType());
-                    if (data.get(relative) > 1) {
+                    if (data.get(relative) > 1 && GATConfig.instance().enableConflicts()) {
                         conflicted = true;
                         break;
                     }

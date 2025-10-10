@@ -82,6 +82,10 @@ public class GATConfig {
         return defineEnum(builder, name, defaultValue);
     }
 
+    public boolean enableConflicts() {
+        return common.enableConflicts.get();
+    }
+    
     public int getBoostedInternalEnergyMultiplier() {
         return common.boostedInternalEnergyMultiplier.get();
     }
@@ -130,6 +134,8 @@ public class GATConfig {
     static class CommonConfig {
         private final ModConfigSpec spec;
 
+        public ModConfigSpec.BooleanValue enableConflicts;
+        
         public ModConfigSpec.IntValue boostedInternalEnergyMultiplier;
         public ModConfigSpec.IntValue boostedIdlePowerConsumption;
         public ModConfigSpec.DoubleValue boostedSpeedMultiplier;
@@ -145,68 +151,78 @@ public class GATConfig {
         public CommonConfig() {
             var builder = new ModConfigSpec.Builder();
 
-            builder.push("Boosted Growth Accelerator");
+            builder.push("general");
+            
+            enableConflicts = define(builder, 
+                                     "enable_conflicts",
+                                     true,
+                                     "If set to false, the Boosted / Directional Accelerator will not conflict with other Accelerators of the same type"
+            );
+            
+            builder.pop();
+            
+            builder.push("boosted_growth_accelerator");
 
             boostedInternalEnergyMultiplier = define(builder,
                     "boosted_internal_energy_multiplier",
-                    40, 1, Integer.MAX_VALUE,
-                    " Defines the Multiplier for the internal power inventory of the Boosted Growth Accelerator.\n 10 would imitate the normal AE2 Growth Accelerator"
+                    60, 1, Integer.MAX_VALUE,
+                    "Defines the Multiplier for the internal power inventory of the Boosted Growth Accelerator.\n 10 would imitate the normal AE2 Growth Accelerator"
             );
 
             boostedIdlePowerConsumption = define(builder,
                     "boosted_idle_power_consumption",
-                    16, 1, Integer.MAX_VALUE,
-                    " Defines the power consumption of the Boosted Growth Accelerator consumed while running.\n 8 would imitate the normal AE2 Growth Accelerator"
+                    24, 1, Integer.MAX_VALUE,
+                    "Defines the power consumption of the Boosted Growth Accelerator consumed while running.\n 8 would imitate the normal AE2 Growth Accelerator"
             );
 
             boostedSpeedMultiplier = define(builder,
                     "boosted_speed_multiplier",
-                    4.0f, 1.0f, Double.MAX_VALUE,
-                    " Defines the multiplier with which the Boosted Growth Accelerator will tick the adjacent blocks.\n 1.0f would imitate the normal AE2 Growth Accelerator"
+                    8.0f, 1.0f, Double.MAX_VALUE,
+                    "Defines the multiplier with which the Boosted Growth Accelerator will tick the adjacent blocks.\n 1.0f would imitate the normal AE2 Growth Accelerator"
             );
 
             builder.pop();
 
-            builder.push("Cranked Growth Accelerator");
+            builder.push("cranked_growth_accelerator");
 
             crankedInternalEnergyMultiplier = define(builder,
                     "cranked_internal_energy_multiplier",
                     20, 1, Integer.MAX_VALUE,
-                    " Defines the Multiplier for the internal power inventory of the Cranked Growth Accelerator.\n 10 would imitate the normal AE2 Growth Accelerator"
+                    "Defines the Multiplier for the internal power inventory of the Cranked Growth Accelerator.\n 10 would imitate the normal AE2 Growth Accelerator"
             );
 
             crankedIdlePowerConsumption = define(builder,
                     "cranked_idle_power_consumption",
                     8, 1, Integer.MAX_VALUE,
-                    " Defines the power consumption of the Cranked Growth Accelerator consumed while running.\n 8 would imitate the normal AE2 Growth Accelerator"
+                    "Defines the power consumption of the Cranked Growth Accelerator consumed while running.\n 8 would imitate the normal AE2 Growth Accelerator"
             );
 
             crankedSpeedMultiplier = define(builder,
                     "cranked_speed_multiplier",
                     8.0f, 1.0f, Double.MAX_VALUE,
-                    " Defines the multiplier with which the Cranked Growth Accelerator will tick the adjacent blocks.\n 1.0f would imitate the normal AE2 Growth Accelerator"
+                    "Defines the multiplier with which the Cranked Growth Accelerator will tick the adjacent blocks.\n 1.0f would imitate the normal AE2 Growth Accelerator"
             );
 
             builder.pop();
 
-            builder.push("Directional Growth Accelerator");
+            builder.push("directional_growth_accelerator");
 
             directionalInternalEnergyMultiplier = define(builder,
                     "directional_internal_energy_multiplier",
                     20, 1, Integer.MAX_VALUE,
-                    " Defines the Multiplier for the internal power inventory of the Directional Growth Accelerator.\n 10 would imitate the normal AE2 Growth Accelerator"
+                    "Defines the Multiplier for the internal power inventory of the Directional Growth Accelerator.\n 10 would imitate the normal AE2 Growth Accelerator"
             );
 
             directionalIdlePowerConsumption = define(builder,
                     "directional_idle_power_consumption",
                     12, 1, Integer.MAX_VALUE,
-                    " Defines the power consumption of the Directional Growth Accelerator consumed while running.\n 8 would imitate the normal AE2 Growth Accelerator"
+                    "Defines the power consumption of the Directional Growth Accelerator consumed while running.\n 8 would imitate the normal AE2 Growth Accelerator"
             );
 
             directionalSpeedMultiplier = define(builder,
                     "directional_speed_multiplier",
                     2.0f, 1.0f, Double.MAX_VALUE,
-                    " Defines the multiplier with which the Directional Growth Accelerator will tick the adjacent blocks.\n 1.0f would imitate the normal AE2 Growth Accelerator"
+                    "Defines the multiplier with which the Directional Growth Accelerator will tick the adjacent blocks.\n 1.0f would imitate the normal AE2 Growth Accelerator"
             );
 
             builder.pop();

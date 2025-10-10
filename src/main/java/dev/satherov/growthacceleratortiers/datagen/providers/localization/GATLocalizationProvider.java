@@ -72,6 +72,24 @@ public class GATLocalizationProvider implements IAE2DataProvider {
         add("command.growthacceleratortiers.no_data", "No data found on the block");
         add("command.growthacceleratortiers.boosted_position", "Boosted Data: %s");
         add("command.growthacceleratortiers.directional_position", "Directional Data: %s");
+        
+        add("growthacceleratortiers.configuration.general", "General");
+        add("growthacceleratortiers.configuration.enable_conflicts", "Enable Conflicts");
+        
+        add("growthacceleratortiers.configuration.boosted_growth_accelerator", "Boosted Growth Accelerator");
+        add("growthacceleratortiers.configuration.boosted_internal_energy_multiplier", "Boosted Internal Energy Multiplier");
+        add("growthacceleratortiers.configuration.boosted_idle_power_consumption", "Boosted Idle Power Consumption");
+        add("growthacceleratortiers.configuration.boosted_speed_multiplier", "Boosted Speed Multiplier");
+        
+        add("growthacceleratortiers.configuration.cranked_growth_accelerator", "Cranked Growth Accelerator");
+        add("growthacceleratortiers.configuration.cranked_internal_energy_multiplier", "Cranked Internal Energy Multiplier");
+        add("growthacceleratortiers.configuration.cranked_idle_power_consumption", "Cranked Idle Power Consumption");
+        add("growthacceleratortiers.configuration.cranked_speed_multiplier", "Cranked Speed Multiplier");
+        
+        add("growthacceleratortiers.configuration.directional_growth_accelerator", "Directional Growth Accelerator");
+        add("growthacceleratortiers.configuration.directional_internal_energy_multiplier", "Directional Internal Energy Multiplier");
+        add("growthacceleratortiers.configuration.directional_idle_power_consumption", "Directional Idle Power Consumption");
+        add("growthacceleratortiers.configuration.directional_speed_multiplier", "Directional Speed Multiplier");
 
         return save(cache, localizations);
     }
